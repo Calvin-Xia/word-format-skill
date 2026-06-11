@@ -2,3 +2,9 @@ interface:
   display_name: "Word Format"
   short_description: "按中文学术规范排版并交付可提交 Word 文档"
   default_prompt: "Use $word-format to format this document into a polished .docx file."
+  triggers:
+    - "Word 排版"
+    - "format DOCX"
+    - "实验报告"
+    - "课程论文"
+    - "Chinese academic formatting"
