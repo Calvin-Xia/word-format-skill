@@ -82,7 +82,7 @@ Use $word-format to format this document into a polished .docx file.
 
 ## 评估工具
 
-项目包含一个基于 [obra/superpowers](https://github.com/obra/superpowers) 评估框架的工具：
+项目包含一个基于 [obra/superpowers/writing-skills](https://github.com/obra/superpowers/tree/main/skills/writing-skills) 评估框架的工具：
 
 ```bash
 python evaluate_skill.py
@@ -105,7 +105,7 @@ python evaluate_skill.py
 ## 相关资源
 
 - [agentskills.io/specification](https://agentskills.io/specification) - Skill 规范
-- [obra/superpowers](https://github.com/obra/superpowers) - 评估框架 (writing-skills)
+- [obra/superpowers/writing-skills](https://github.com/obra/superpowers/tree/main/skills/writing-skills) - 评估框架
 
 ## 许可证
 
