@@ -1,5 +1,4 @@
-
-# word-format-skill# Word Format Skill
+# Word Format Skill
 
 一个用于中文 Word 文档排版的 Codex Skill。适用于课程论文、实验报告、作业文档、已有 `.docx` 文档整理，以及需要按中文学术规范生成可提交 Word 文件的场景。
 
@@ -16,19 +15,25 @@
 ## 目录结构
 
 ```text
-word-format/
-├── SKILL.md
-├── agents/
-│   └── openai.yaml
-└── references/
-    └── word-format-spec.md
+word-format-skill/
+├── README.md
+├── evaluate_skill.py          # Skill 评估工具
+└── word-format/
+    ├── SKILL.md               # 核心说明
+    ├── agents/
+    │   └── openai.yaml        # Codex UI 元数据
+    └── references/
+        └── word-format-spec.md # 完整排版规范
 ```
 
-说明：
+**文件说明：**
 
-- `SKILL.md`：Codex 触发和执行该技能时读取的核心说明。
-- `references/word-format-spec.md`：完整 Word 排版规范。
-- `agents/openai.yaml`：Codex UI 中展示用的元数据。
+| 文件 | 用途 |
+|------|------|
+| `word-format/SKILL.md` | Codex 触发和执行该技能时读取的核心说明 |
+| `word-format/references/word-format-spec.md` | 完整 Word 排版规范 |
+| `word-format/agents/openai.yaml` | Codex UI 中展示用的元数据 |
+| `evaluate_skill.py` | 基于 writing-skills 框架的评估工具 |
 
 ## 安装
 
@@ -60,16 +65,48 @@ Use $word-format to format this document into a polished .docx file.
 
 ## 默认排版规范
 
-- 页面：A4，纵向，四边页边距 2.5 cm
-- 正文中文：宋体，五号
-- 正文英文、数字、变量和单位：Times New Roman
-- 一级标题：宋体，小三，加粗
-- 二级标题：黑体，小四，不加粗
-- 正文段落：首行缩进 2 个中文字符，两端对齐，1.5 倍行距
-- 表格：Word 原生表格，居中，不超出页边距
-- 图片：居中、清晰、保持比例
-- 公式：可编辑 Word 公式，不能截图化
-- 重点标注：浅蓝色，且不超过全文 20%
+| 类别 | 规范 |
+|------|------|
+| 页面 | A4，纵向，四边页边距 2.5 cm |
+| 正文中文 | 宋体，五号 |
+| 正文英文/数字/变量/单位 | Times New Roman |
+| 一级标题 | 宋体，小三，加粗 |
+| 二级标题 | 黑体，小四，不加粗 |
+| 正文段落 | 首行缩进 2 个中文字符，两端对齐，1.5 倍行距 |
+| 表格 | Word 原生表格，居中，不超出页边距 |
+| 图片 | 居中、清晰、保持比例 |
+| 公式 | 可编辑 Word 公式，不能截图化 |
+| 重点标注 | 浅蓝色，且不超过全文 20% |
 
-如用户提供学校、课程或教师模板，应优先遵守用户模板。
+> **注意：** 如用户提供学校、课程或教师模板，应优先遵守用户模板。
 
+## 评估工具
+
+项目包含一个基于 [obra/superpowers/writing-skills](https://github.com/obra/superpowers/tree/main/skills/writing-skills) 评估框架的工具：
+
+```bash
+python evaluate_skill.py
+```
+
+**评估维度（满分 130 分）：**
+
+| 维度 | 分值 | 说明 |
+|------|------|------|
+| YAML Frontmatter | 20 | name/description 格式 |
+| Structure | 25 | 必需章节完整性 |
+| CSO Optimization | 25 | 触发关键词、双语支持 |
+| Content Quality | 20 | 示例、代码块、表格 |
+| Testing/TDD | 20 | 测试方法论 |
+| Anti-Patterns | 10 | 反模式规避 |
+| Token Efficiency | 10 | 行数/词数效率 |
+
+**当前评分：107/130 (82.3%)**
+
+## 相关资源
+
+- [agentskills.io/specification](https://agentskills.io/specification) - Skill 规范
+- [obra/superpowers/writing-skills](https://github.com/obra/superpowers/tree/main/skills/writing-skills) - 评估框架
+
+## 许可证
+
+MIT License

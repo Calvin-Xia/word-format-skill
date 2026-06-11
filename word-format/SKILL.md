@@ -1,6 +1,6 @@
 ---
 name: word-format
-description: Format or produce Chinese Word documents (.docx) according to academic/report layout rules, including A4 margins, Chinese/English fonts, heading levels, paragraph spacing, tables, figures, editable equations, highlights, page numbers, and final QA. Use when Codex is asked to do Word 排版, format a DOCX, polish a report/实验报告/course document, apply Chinese academic formatting, or generate a submission-ready .docx file, with optional PDF export.
+description: Use when asked to do Word 排版, format a DOCX, polish a report/实验报告/course document, apply Chinese academic formatting, or generate a submission-ready .docx file. Also use when formatting lab reports, course papers, homework assignments, or any Chinese document that needs A4 margins, proper fonts, heading hierarchy, tables, figures, equations, and page numbers.
 ---
 
 # Word Format
@@ -10,6 +10,37 @@ description: Format or produce Chinese Word documents (.docx) according to acade
 Use this skill to turn user-provided text, notes, Markdown, or existing documents into a polished, submission-ready `.docx` file that follows Chinese academic Word formatting conventions.
 
 Always produce an actual Word document. Do not stop at formatting advice.
+
+## When to Use
+
+**Use this skill when:**
+- User asks to format/排版 a Word document
+- User provides a report, lab report, or course paper that needs formatting
+- User wants Chinese academic formatting (A4, 宋体/黑体, proper headings)
+- User needs a submission-ready .docx file
+- User mentions "实验报告", "课程论文", "作业文档"
+
+**Do NOT use when:**
+- User only wants writing advice (no document output)
+- User is working with PDFs only
+- User needs English-only academic formatting (APA, MLA)
+
+## Before/After Example
+
+**Before (raw text):**
+```
+实验目的
+了解示波器的基本工作原理
+实验仪器
+示波器、信号发生器、万用表
+```
+
+**After (formatted .docx):**
+- A4 portrait, 2.5cm margins
+- 一级标题：宋体小三加粗（一、实验目的）
+- 正文：宋体五号，首行缩进2字符，1.5倍行距
+- 原生Word表格，公式可编辑
+- 页码居中，无AI痕迹
 
 ## Core Workflow
 
@@ -61,6 +92,17 @@ Before final delivery, check the document against `references/word-format-spec.m
 - Whether tables, figures, formulas, captions, and page numbers are visible and correctly placed.
 - Whether highlights are light blue, restrained, and not bold.
 - Whether there are extra blank pages, excessive empty lines, broken captions, or AI/process wording.
+
+## Common Mistakes
+
+| Mistake | Fix |
+|---------|-----|
+| Adding a full-document title | Do NOT add extra title unless user explicitly requests |
+| Using screenshots for tables/equations | Always use Word native tables and editable equations |
+| AI process wording in output | Remove "根据用户要求", "AI 生成", etc. |
+| Overusing highlights | Light blue only, max 20%, never bold+highlight |
+| Wrong font for numbers | Use Times New Roman for English/digits/variables |
+| Missing Quality Gate check | Always run final checklist before delivery |
 
 ## Reference
 
